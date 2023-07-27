@@ -40,7 +40,7 @@ public class ZipCodeTest {
                 .pathParam("zipCode", zipCode)
                 .when().get(BASE_URL + "{countryCode}/{zipCode}").then().statusCode(200)
                 .assertThat()
-                .body("places[0].'place name'", containsString("{cityName}")).log().all();
+                .body("places[0].'place name'", containsString(cityName)).log().all();
     }
 
     @Test(priority = 4)
