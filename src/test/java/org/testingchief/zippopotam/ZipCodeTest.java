@@ -38,7 +38,7 @@ public class ZipCodeTest {
     public void requestCityName(String countryCode, String zipCode, String cityName) {
         given().pathParam("countryCode", countryCode)
                 .pathParam("zipCode", zipCode)
-                .pathParam("cityName", cityName).when().get(BASE_URL + "{countryCode}/{zipCode}").then().statusCode(200)
+                .when().get(BASE_URL + "{countryCode}/{zipCode}").then().statusCode(200)
                 .assertThat()
                 .body("places[0].'place name'", containsString("{cityName}")).log().all();
     }
