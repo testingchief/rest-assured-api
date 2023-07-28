@@ -1,7 +1,6 @@
 package org.testingchief.parabank;
 
 import org.testng.annotations.Test;
-import com.github.javafaker.*;
 
 import static io.restassured.RestAssured.given;
 
@@ -14,8 +13,7 @@ public class LoginTest {
         initializeDB();
         String userName = "john";
         String password = "demo";
-        given().param("username", userName).param("password", password)
-                .when().get(BASE_URL + "login")
+        given().when().get(BASE_URL + "login/" + userName + "/" + password)
                 .then().statusCode(200)
                 .log().all();
     }
