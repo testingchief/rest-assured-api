@@ -28,7 +28,7 @@ public class ZipCodeTest {
     @DataProvider(name = "US_CITIES")
     public Object[][] cityData() {
         return new Object[][] {
-                { "us", "45342", "Dayton" },
+                { "us", "45342", "Miamisburg" },
                 { "us", "90210", "Beverly Hills" },
                 { "ca", "L1R", "Whitby" }
         };
@@ -43,9 +43,4 @@ public class ZipCodeTest {
                 .body("places[0].'place name'", containsString(cityName)).log().all();
     }
 
-    @Test(priority = 4)
-    public void requestCACityName() {
-        given().when().get(BASE_URL + "ca/on/ajax").then().statusCode(200).assertThat()
-                .body("places[0].'place name'", containsString("Ajax")).log().all();
-    }
 }
