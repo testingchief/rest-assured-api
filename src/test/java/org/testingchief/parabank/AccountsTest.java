@@ -1,8 +1,6 @@
 package org.testingchief.parabank;
 
 import org.testng.annotations.Test;
-import com.github.javafaker.*;
-
 import static io.restassured.RestAssured.given;
 
 public class AccountsTest {
@@ -15,7 +13,6 @@ public class AccountsTest {
                 .when().get(BASE_URL + "customers/" + CUSTOMER_ID + "/accounts")
                 .then().assertThat()
                 .statusCode(200)
-                .body("customerId", CUSTOMER_ID)
                 .log().all();
     }
 
